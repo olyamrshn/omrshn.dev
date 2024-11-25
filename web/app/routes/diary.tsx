@@ -10,7 +10,7 @@ function RouteComponent() {
         my thoughts have captured your interest! code is{" "}
         <a
           href="https://github.com/marshennikovaolga/dear-diary"
-          className="italic text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+          className="italic text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -26,11 +26,11 @@ function RouteComponent() {
       />
       <Link
         to="/notes"
-        className="mt-5 hover:opacity-60 transition-opacity text-white duration-300"
+        className="mt-5 hover:opacity-60 transition-opacity  text-black dark:text-white duration-300"
       >
         NOTES
       </Link>
-      <p className="py-3 font-thin opacity-60">
+      <p className="py-3 font-normal text-sm">
         travel thoughts and reflections
       </p>
     </div>

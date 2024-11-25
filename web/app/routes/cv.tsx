@@ -23,7 +23,7 @@ function RouteComponent() {
       link: "https://github.com/olyamrshn/zuleika-jewelry",
     },
     {
-      title: "The Pact (2024)",
+      title: "The Pakt (2024)",
       description: [
         "Protocol for creating and managing escrow contracts for task-based funding",
       ],
@@ -132,7 +132,7 @@ function RouteComponent() {
         {item.link ? (
           <a
             href={item.link}
-            className="hover:text-white/50 text-white transition-opacity duration-300 flex items-center gap-2"
+            className="hover:opacity-60  text-black dark:text-white transition-opacity duration-300 flex items-center gap-2"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -157,8 +157,8 @@ function RouteComponent() {
   )
 
   return (
-    <div className="text-white mx-auto my-4 max-w-2xl user-select-none">
-      <div className="text-white mx-auto max-w-screen-md px-4 text-left">
+    <div className=" text-black dark:text-white mx-auto my-4 max-w-2xl user-select-none">
+      <div className=" text-black dark:text-white mx-auto max-w-screen-md px-4 text-left">
         <h1 className="text-base font-regular mb-3">Marshennikova Olga</h1>
 
         <Section title="PROFESSIONAL EXPERIENCE">

@@ -10,7 +10,7 @@ import {
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons"
 
-function CVComponent() {
+function MainComponent() {
   const links = [
     { icon: faGithub, href: "https://github.com/olyamrshn" },
     { icon: faXTwitter, href: "https://twitter.com/leatbabies" },
@@ -24,21 +24,21 @@ function CVComponent() {
   ]
 
   return (
-    <div className="min-h-screen p-8 flex flex-col max-w-xl mx-auto text-left items-start justify-center text-white space-y-2">
+    <div className="min-h-screen p-8 flex flex-col max-w-xl mx-auto text-left items-start justify-center  text-black dark:text-white space-y-2">
       <p>Hi there! I'm a frontend developer based in Madrid.</p>
       <p>
         {" "}
         Enjoy contributing to{" "}
         <Link
           to="/cv"
-          className="text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+          className=" text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
         >
           open source projects
         </Link>{" "}
         and keeping{" "}
         <Link
           to="/diary"
-          className="text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+          className=" text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
         >
           a dev & live journal
         </Link>{" "}
@@ -49,7 +49,7 @@ function CVComponent() {
           <a
             key={index}
             href={link.href}
-            className="text-xl text-white opacity-70 hover:opacity-90 transition-opacity duration-300"
+            className="text-xl  text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300"
           >
             <FontAwesomeIcon icon={link.icon} />
           </a>
@@ -60,5 +60,5 @@ function CVComponent() {
 }
 
 export const Route = createFileRoute("/")({
-  component: CVComponent,
+  component: MainComponent,
 })
