@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { Link } from "@tanstack/react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import anime from "animejs"
+import { useEffect } from "react"
 import {
   faInstagram,
   faGithub,
@@ -11,6 +13,26 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 
 function MainComponent() {
+  useEffect(() => {
+    anime({
+      targets: ".text-animate",
+      translateY: [20, 0],
+      opacity: [0, 1],
+      duration: 1200,
+      delay: anime.stagger(200),
+      easing: "easeOutElastic(1, .6)",
+    })
+
+    anime({
+      targets: ".icon-animate",
+      scale: [0, 1],
+      opacity: [0, 1],
+      duration: 1000,
+      delay: anime.stagger(100, { start: 800 }),
+      easing: "spring(1, 60, 10, 0)",
+    })
+  }, [])
+
   const links = [
     { icon: faGithub, href: "https://github.com/olyamrshn" },
     { icon: faXTwitter, href: "https://twitter.com/leatbabies" },
@@ -24,9 +46,11 @@ function MainComponent() {
   ]
 
   return (
-    <div className="min-h-screen p-8 flex flex-col max-w-xl mx-auto text-left items-start justify-center  text-black dark:text-white space-y-2">
-      <p>Hi there! I'm a frontend developer based in Madrid.</p>
-      <p>
+    <div className="min-h-screen p-8 flex flex-col max-w-xl mx-auto text-left items-start justify-center text-black dark:text-white space-y-2">
+      <p className="text-animate">
+        Hi there! I'm a frontend developer based in Madrid.
+      </p>
+      <p className="text-animate">
         {" "}
         Enjoy contributing to{" "}
         <Link
@@ -40,7 +64,7 @@ function MainComponent() {
           to="/diary"
           className=" text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
         >
-          a dev & live journal
+          a dev-live journal
         </Link>{" "}
         in my spare time.
       </p>
@@ -49,7 +73,7 @@ function MainComponent() {
           <a
             key={index}
             href={link.href}
-            className="text-xl  text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300"
+            className="text-xl text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 icon-animate"
           >
             <FontAwesomeIcon icon={link.icon} />
           </a>
