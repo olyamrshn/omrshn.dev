@@ -11,10 +11,34 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as NotesImport } from './routes/notes'
+import { Route as DiaryImport } from './routes/diary'
+import { Route as CvImport } from './routes/cv'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
+import { Route as NotesLayoutImport } from './routes/notes._layout'
+import { Route as NotesYearImport } from './routes/notes.$year'
+import { Route as NotesYearMonthImport } from './routes/notes.$year.$month'
 
 // Create/Update Routes
+
+const NotesRoute = NotesImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DiaryRoute = DiaryImport.update({
+  id: '/diary',
+  path: '/diary',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CvRoute = CvImport.update({
+  id: '/cv',
+  path: '/cv',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const LayoutRoute = LayoutImport.update({
   id: '/_layout',
@@ -25,6 +49,23 @@ const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const NotesLayoutRoute = NotesLayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => NotesRoute,
+} as any)
+
+const NotesYearRoute = NotesYearImport.update({
+  id: '/$year',
+  path: '/$year',
+  getParentRoute: () => NotesRoute,
+} as any)
+
+const NotesYearMonthRoute = NotesYearMonthImport.update({
+  id: '/$month',
+  path: '/$month',
+  getParentRoute: () => NotesYearRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -45,44 +86,155 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
+    '/cv': {
+      id: '/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvImport
+      parentRoute: typeof rootRoute
+    }
+    '/diary': {
+      id: '/diary'
+      path: '/diary'
+      fullPath: '/diary'
+      preLoaderRoute: typeof DiaryImport
+      parentRoute: typeof rootRoute
+    }
+    '/notes': {
+      id: '/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof NotesImport
+      parentRoute: typeof rootRoute
+    }
+    '/notes/$year': {
+      id: '/notes/$year'
+      path: '/$year'
+      fullPath: '/notes/$year'
+      preLoaderRoute: typeof NotesYearImport
+      parentRoute: typeof NotesImport
+    }
+    '/notes/_layout': {
+      id: '/notes/_layout'
+      path: ''
+      fullPath: '/notes'
+      preLoaderRoute: typeof NotesLayoutImport
+      parentRoute: typeof NotesImport
+    }
+    '/notes/$year/$month': {
+      id: '/notes/$year/$month'
+      path: '/$month'
+      fullPath: '/notes/$year/$month'
+      preLoaderRoute: typeof NotesYearMonthImport
+      parentRoute: typeof NotesYearImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface NotesYearRouteChildren {
+  NotesYearMonthRoute: typeof NotesYearMonthRoute
+}
+
+const NotesYearRouteChildren: NotesYearRouteChildren = {
+  NotesYearMonthRoute: NotesYearMonthRoute,
+}
+
+const NotesYearRouteWithChildren = NotesYearRoute._addFileChildren(
+  NotesYearRouteChildren,
+)
+
+interface NotesRouteChildren {
+  NotesYearRoute: typeof NotesYearRouteWithChildren
+  NotesLayoutRoute: typeof NotesLayoutRoute
+}
+
+const NotesRouteChildren: NotesRouteChildren = {
+  NotesYearRoute: NotesYearRouteWithChildren,
+  NotesLayoutRoute: NotesLayoutRoute,
+}
+
+const NotesRouteWithChildren = NotesRoute._addFileChildren(NotesRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
+  '/cv': typeof CvRoute
+  '/diary': typeof DiaryRoute
+  '/notes': typeof NotesLayoutRoute
+  '/notes/$year': typeof NotesYearRouteWithChildren
+  '/notes/$year/$month': typeof NotesYearMonthRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
+  '/cv': typeof CvRoute
+  '/diary': typeof DiaryRoute
+  '/notes': typeof NotesLayoutRoute
+  '/notes/$year': typeof NotesYearRouteWithChildren
+  '/notes/$year/$month': typeof NotesYearMonthRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_layout': typeof LayoutRoute
+  '/cv': typeof CvRoute
+  '/diary': typeof DiaryRoute
+  '/notes': typeof NotesRouteWithChildren
+  '/notes/$year': typeof NotesYearRouteWithChildren
+  '/notes/_layout': typeof NotesLayoutRoute
+  '/notes/$year/$month': typeof NotesYearMonthRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | ''
+  fullPaths:
+    | '/'
+    | ''
+    | '/cv'
+    | '/diary'
+    | '/notes'
+    | '/notes/$year'
+    | '/notes/$year/$month'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | ''
-  id: '__root__' | '/' | '/_layout'
+  to:
+    | '/'
+    | ''
+    | '/cv'
+    | '/diary'
+    | '/notes'
+    | '/notes/$year'
+    | '/notes/$year/$month'
+  id:
+    | '__root__'
+    | '/'
+    | '/_layout'
+    | '/cv'
+    | '/diary'
+    | '/notes'
+    | '/notes/$year'
+    | '/notes/_layout'
+    | '/notes/$year/$month'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LayoutRoute: typeof LayoutRoute
+  CvRoute: typeof CvRoute
+  DiaryRoute: typeof DiaryRoute
+  NotesRoute: typeof NotesRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LayoutRoute: LayoutRoute,
+  CvRoute: CvRoute,
+  DiaryRoute: DiaryRoute,
+  NotesRoute: NotesRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -96,7 +248,10 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_layout"
+        "/_layout",
+        "/cv",
+        "/diary",
+        "/notes"
       ]
     },
     "/": {
@@ -104,6 +259,34 @@ export const routeTree = rootRoute
     },
     "/_layout": {
       "filePath": "_layout.tsx"
+    },
+    "/cv": {
+      "filePath": "cv.tsx"
+    },
+    "/diary": {
+      "filePath": "diary.tsx"
+    },
+    "/notes": {
+      "filePath": "notes.tsx",
+      "children": [
+        "/notes/$year",
+        "/notes/_layout"
+      ]
+    },
+    "/notes/$year": {
+      "filePath": "notes.$year.tsx",
+      "parent": "/notes",
+      "children": [
+        "/notes/$year/$month"
+      ]
+    },
+    "/notes/_layout": {
+      "filePath": "notes._layout.tsx",
+      "parent": "/notes"
+    },
+    "/notes/$year/$month": {
+      "filePath": "notes.$year.$month.tsx",
+      "parent": "/notes/$year"
     }
   }
 }
