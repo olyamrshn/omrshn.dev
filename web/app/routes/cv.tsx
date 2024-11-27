@@ -49,14 +49,20 @@ function RouteComponent() {
   const additionalEducation = [
     {
       title:
-        "- Yandex Practicum | Frontend Full Development Course - 2022 (1 year)",
+        "Yandex Practicum | Frontend Full Development Course - 2022 (1 year)",
       points: [
         "Frontend development fundamentals",
         "React and modern web technologies",
       ],
     },
     {
-      title: "- Animations.dev",
+      title: "Complete CSS: A course by Piccalilli",
+      subtitle: "in progress",
+      link: "https://piccalil.li",
+    },
+    {
+      title: "Animations.dev",
+      link: "https://animations.dev",
       points: [
         "Advanced web animations",
         "CSS and JavaScript animation techniques",
@@ -88,9 +94,9 @@ function RouteComponent() {
               {items.map((skill) => (
                 <span
                   key={skill}
-                  className="text-sm px-4 py-2 bg-gradient-to-r from-neutral-800/20 to-neutral-800/20
+                  className="text-sm px-4 py-2 bg-inherit
                     border border-neutral-800/30 rounded-lg transition-all duration-300
-                    hover:from-neutral-800/30 hover:to-neutral-800/30 hover:bg-neutral-800
+                    hover:from-neutral-800/30 hover:to-neutral-800/30 hover:bg-neutral-800/10 dark:hover:bg-white/10
                     hover:scale-105 cursor-default"
                 >
                   {skill}
@@ -132,7 +138,7 @@ function RouteComponent() {
         {item.link ? (
           <a
             href={item.link}
-            className="hover:opacity-60  text-black dark:text-white transition-opacity duration-300 flex items-center gap-2"
+            className="hover:opacity-60 text-black dark:text-white transition-opacity duration-300 flex items-center gap-2"
             target="_blank"
             rel="noopener noreferrer"
           >

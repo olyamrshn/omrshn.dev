@@ -73,7 +73,9 @@ function MainComponent() {
           <a
             key={index}
             href={link.href}
-            className="text-xl text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 icon-animate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl text-inherit opacity-70 hover:opacity-50 transition-opacity duration-300 icon-animate no-underline [&_svg]:!text-inherit [&_svg]:!fill-current"
           >
             <FontAwesomeIcon icon={link.icon} />
           </a>
