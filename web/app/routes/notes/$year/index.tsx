@@ -10,7 +10,7 @@ function YearComponent() {
   }
 
   return (
-    <>
+    <div className="text-center text-md flex flex-col items-center justify-center">
       <Link to="/notes" className="text-sm opacity-60 hover:opacity-100">
         ← Back to notes
       </Link>
@@ -29,10 +29,10 @@ function YearComponent() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 
-export const Route = createFileRoute("/notes/$year")({
+export const Route = createFileRoute("/notes/$year/")({
   component: YearComponent,
 })

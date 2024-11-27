@@ -49,6 +49,7 @@ function MonthComponent() {
         nextMonth={nextMonth ? `${year}/${nextMonth}` : undefined}
         prevMonthName={prevMonthName}
         nextMonthName={nextMonthName}
+        year={year}
       />
     </div>
   )

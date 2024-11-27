@@ -11,6 +11,7 @@ function NotesComponent() {
     <div className="text-center text-md flex flex-col items-center justify-center">
       {isRoot && (
         <>
+          <Link to="/diary">← Back to diary</Link>
           <h1 className="pt-10">NOTES</h1>
           <ul className="mt-5 space-y-5">
             {Object.keys(monthData).map((year) => (
@@ -31,6 +32,6 @@ function NotesComponent() {
   )
 }
 
-export const Route = createFileRoute("/notes")({
+export const Route = createFileRoute("/notes/")({
   component: NotesComponent,
 })

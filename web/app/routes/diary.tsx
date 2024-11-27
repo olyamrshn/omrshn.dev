@@ -3,6 +3,7 @@ import { Link, createFileRoute } from "@tanstack/react-router"
 function RouteComponent() {
   return (
     <div className="text-center text-md flex flex-col items-center justify-center">
+      <Link to="/">← Back to home</Link>
       <h1 className="pt-10">Diary</h1>
       <p className="mt-5 px-4 lg:w-1/3">
         This blog will feature short notes, Spotify songs, and photos that I'll
