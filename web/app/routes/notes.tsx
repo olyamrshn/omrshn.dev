@@ -1,24 +1,32 @@
-import { Link, createFileRoute } from "@tanstack/react-router"
+import { Link, Outlet, createFileRoute } from "@tanstack/react-router"
 import { monthData } from "~/data/monthData"
+import { useRouter } from "@tanstack/react-router"
 
 function NotesComponent() {
+  const router = useRouter()
+  const segments = router.state.location.pathname.split("/")
+  const isRoot = segments.length === 2
+
   return (
     <div className="text-center text-md flex flex-col items-center justify-center">
-      <h1 className="pt-10">NOTES</h1>
-      <ul className="mt-5 space-y-5">
-        {Object.keys(monthData).map((year) => (
-          <li key={year}>
-            <Link
-              to={`/notes/${year}`}
-              className={`hover:opacity-60 transition-opacity duration-300 ${
-                year === "2025" ? "opacity-40" : ""
-              }`}
-            >
-              {year}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {isRoot && (
+        <>
+          <h1 className="pt-10">NOTES</h1>
+          <ul className="mt-5 space-y-5">
+            {Object.keys(monthData).map((year) => (
+              <li key={year}>
+                <Link
+                  to={`/notes/${year}`}
+                  className="opacity-50 hover:opacity-80 transition-opacity duration-300"
+                >
+                  {year}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <Outlet />
     </div>
   )
 }

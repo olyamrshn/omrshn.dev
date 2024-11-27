@@ -10,11 +10,11 @@ function YearComponent() {
   }
 
   return (
-    <div className="text-center text-md flex flex-col items-center justify-center">
+    <>
       <Link to="/notes" className="text-sm opacity-60 hover:opacity-100">
         ← Back to notes
       </Link>
-      <h1 className="pt-10 hover:opacity-60 transition-opacity duration-300">
+      <h1 className="pt-10 opacity-50 hover:opacity-80 transition-opacity duration-300">
         {year}
       </h1>
       <ul className="mt-5 space-y-5">
@@ -29,15 +29,10 @@ function YearComponent() {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   )
 }
 
 export const Route = createFileRoute("/notes/$year")({
   component: YearComponent,
-  parseParams: (params) => {
-    return {
-      year: params.year,
-    }
-  },
 })

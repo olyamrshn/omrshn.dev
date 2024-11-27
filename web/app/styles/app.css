@@ -13,6 +13,10 @@
   }
 }
 
+li {
+  @apply text-gray-500 hover:opacity-80 transition-opacity duration-300;
+}
+
 a {
-  @apply text-slate-100 dark:text-gray-500 no-underline hover:text-gray-500 dark:hover:text-gray-400 transition-opacity duration-300;
+  @apply text-black dark:text-gray-200 no-underline hover:opacity-70 transition-opacity duration-300;
 }

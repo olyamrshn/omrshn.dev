@@ -40,7 +40,7 @@ const Month: React.FC<MonthProps> = ({
         <div className="flex justify-center items-center space-x-20 my-10">
           {prevMonth && prevMonthName && (
             <Link
-              href={`/notes/${prevMonth}`}
+              to={`/notes/${prevMonth}`}
               className="inline-flex items-center"
             >
               <span className="mr-2">←</span>
@@ -49,7 +49,7 @@ const Month: React.FC<MonthProps> = ({
           )}
           {nextMonth && nextMonthName && (
             <Link
-              href={`/notes/${nextMonth}`}
+              to={`/notes/${nextMonth}`}
               className="inline-flex items-center"
             >
               {nextMonthName}
