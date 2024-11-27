@@ -28,7 +28,7 @@ function MainComponent() {
       scale: [0, 1],
       opacity: [0, 1],
       duration: 1000,
-      delay: anime.stagger(100, { start: 800 }),
+      delay: anime.stagger(100, { start: 500 }),
       easing: "spring(1, 60, 10, 0)",
     })
   }, [])
@@ -48,27 +48,30 @@ function MainComponent() {
   return (
     <div className="min-h-screen p-8 flex flex-col max-w-xl mx-auto text-left items-start justify-center text-black dark:text-white space-y-2">
       <p className="text-animate">
-        Hi there! I'm a frontend developer based in Madrid.
+        Hi there! I'm a frontend developer based in Madrid
+        <span className="text-lg pl-1">𓍯𓂃</span>
       </p>
-      <p className="text-animate">
+      <p className="text-animate w-11/12 tracking-tighter">
         {" "}
         Enjoy contributing to{" "}
         <Link
           to="/cv"
-          className=" text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+          className="relative text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer inline-block group"
         >
           open source projects
+          <span className="absolute left-0 -bottom-0.5 w-full h-px bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
         </Link>{" "}
         and keeping{" "}
         <Link
           to="/diary"
-          className=" text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+          className="relative text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer inline-block group"
         >
           a dev-live journal
+          <span className="absolute left-0 -bottom-0.5 w-full h-px bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
         </Link>{" "}
         in my spare time.
       </p>
-      <div className="flex flex-row gap-6 mt-8 self-start">
+      <div className="flex flex-row gap-6 mt-10 self-start">
         {links.map((link, index) => (
           <a
             key={index}
