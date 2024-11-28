@@ -1,6 +1,7 @@
 import { Link, Outlet, createFileRoute } from "@tanstack/react-router"
 import { monthData } from "~/data/monthData"
 import { useRouter } from "@tanstack/react-router"
+import BackLink from "~/components/BackLink"
 
 function NotesComponent() {
   const router = useRouter()
@@ -8,10 +9,10 @@ function NotesComponent() {
   const isRoot = segments.length === 2
 
   return (
-    <div className="text-center text-md flex flex-col items-center justify-center">
+    <div className="text-center text-md flex flex-col items-center justify-center relative">
       {isRoot && (
         <>
-          <Link to="/diary">← Back to diary</Link>
+          <BackLink to="/diary" label="Diary" />
           <h1 className="pt-10">NOTES</h1>
           <ul className="mt-5 space-y-5">
             {Object.keys(monthData).map((year) => (

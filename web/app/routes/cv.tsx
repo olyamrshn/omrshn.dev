@@ -1,36 +1,44 @@
 import * as React from "react"
 import { createFileRoute } from "@tanstack/react-router"
-import { Link as LinkIcon } from "lucide-react"
-import { Link } from "@tanstack/react-router"
+import { LinkIcon } from "lucide-react"
+import BackLink from "~/components/BackLink"
 
 export const Route = createFileRoute("/cv")({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const projects = [
-    {
-      title: "Learn Anything",
-      description:
-        "An open-source educational platform featuring thousands of curated learning topics",
-      image: "https://images.omrshn.dev/learn-anything.jpeg",
-      link: "https://github.com/learn-anything/learn-anything",
-    },
-    {
-      title: "The Pakt",
-      description:
-        "Protocol for creating and managing escrow contracts for task-based funding",
-      image: "https://images.omrshn.dev/pakt.jpeg",
-      link: "https://github.com/thepakt/app.thepakt.com",
-    },
-    {
-      title: "Zuleika Jewelry",
-      description:
-        "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
-      image: "https://images.omrshn.dev/zuleika-store.jpeg",
-      link: "https://github.com/olyamrshn/zuleika-jewelry",
-    },
-  ]
+  const [projectState, setProjectState] = React.useState<"current" | "past">(
+    "current",
+  )
+
+  const projects = {
+    current: [
+      {
+        title: "Learn Anything",
+        description:
+          "An open-source educational platform featuring thousands of curated learning topics",
+        image: "https://images.omrshn.dev/learn-anything.jpeg",
+        link: "https://github.com/learn-anything/learn-anything",
+      },
+      {
+        title: "Zuleika Jewelry",
+        description:
+          "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
+        image: "https://images.omrshn.dev/zuleika-store.jpeg",
+        link: "https://github.com/olyamrshn/zuleika-jewelry",
+      },
+    ],
+    past: [
+      {
+        title: "The Pakt",
+        description:
+          "Protocol for creating and managing escrow contracts for task-based funding",
+        image: "https://images.omrshn.dev/pakt.jpeg",
+        link: "https://github.com/thepakt/app.thepakt.com",
+      },
+    ],
+  }
 
   const achievements = [
     {
@@ -151,16 +159,34 @@ function RouteComponent() {
   )
 
   return (
-    <div className="mx-auto my-[2.5em] max-w-2xl user-select-none">
+    <div className="mx-auto pt-2 my-[2.5em] max-w-2xl user-select-none">
       <div className="mx-auto max-w-screen-md px-4 text-left">
-        <Link href="/" className="text-sm mb-6">
-          ← Main page
-        </Link>
-        <h1 className="text-base font-regular mt-3">Marshennikova Olga</h1>
-
+        <BackLink to="/" label="Main page" />
         <Section title="PROJECTS">
+          <div className="flex w-full mb-6 border border-neutral-600/30 rounded-md overflow-hidden">
+            <button
+              onClick={() => setProjectState("current")}
+              className={`flex-1 px-4 py-2 transition-all ${
+                projectState === "current"
+                  ? "dark:bg-white dark:text-black bg-black text-white"
+                  : "dark:bg-neutral-900 dark:text-white bg-white text-black "
+              }`}
+            >
+              <span className="font-medium">CURRENT</span>
+            </button>
+            <button
+              onClick={() => setProjectState("past")}
+              className={`flex-1 px-4 py-2 transition-all ${
+                projectState === "past"
+                  ? "dark:bg-white dark:text-black bg-black text-white"
+                  : "dark:bg-neutral-900 dark:text-white bg-white text-black "
+              }`}
+            >
+              <span className="font-medium">PAST</span>
+            </button>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-            {projects.map((project) => (
+            {projects[projectState].map((project) => (
               <a
                 key={project.title}
                 href={project.link}

@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router"
+import BackLink from "./BackLink"
 
 interface MonthProps {
   title: string
@@ -23,13 +24,8 @@ const Month: React.FC<MonthProps> = ({
 }) => {
   return (
     <>
-      <div className="text-center">
-        <Link
-          to={`/notes/${year}`}
-          className="text-sm opacity-60 hover:opacity-100"
-        >
-          ← Back to {year} notes
-        </Link>
+      <BackLink to={`/notes/${year}`} label={`${year} notes`} />
+      <div className="text-center mt-10">
         <h1>{title?.toUpperCase()}</h1>
         <p className="mt-10 px-8 text-left lg:w-2/5 mx-auto">{content}</p>
         <div className="mx-auto flex flex-col sm:flex-row justify-center items-center flex-wrap mt-10 mb-10 w-11/12 sm:w-3/4 lg:w-2/5">

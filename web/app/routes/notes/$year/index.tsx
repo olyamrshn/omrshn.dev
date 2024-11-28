@@ -1,5 +1,7 @@
-import { Link, createFileRoute } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
 import { monthData } from "~/data/monthData"
+import BackLink from "~/components/BackLink"
 
 function YearComponent() {
   const { year } = Route.useParams()
@@ -10,10 +12,8 @@ function YearComponent() {
   }
 
   return (
-    <div className="text-center text-md flex flex-col items-center justify-center">
-      <Link to="/notes" className="text-sm opacity-60 hover:opacity-100">
-        ← Back to notes
-      </Link>
+    <div className="text-center text-md flex flex-col items-center justify-center relative">
+      <BackLink to="/notes" label="Notes" />
       <h1 className="pt-10 opacity-50 hover:opacity-80 transition-opacity duration-300">
         {year}
       </h1>

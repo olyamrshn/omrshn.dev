@@ -1,9 +1,11 @@
-import { Link, createFileRoute } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
+import BackLink from "~/components/BackLink"
 
 function RouteComponent() {
   return (
-    <div className="text-center text-md flex flex-col items-center justify-center">
-      <Link to="/">← Back to home</Link>
+    <div className="text-center text-md flex flex-col items-center justify-center relative">
+      <BackLink to="/" label="Main page" />
       <h1 className="pt-10">Diary</h1>
       <p className="mt-5 px-4 lg:w-1/3">
         This blog will feature short notes, Spotify songs, and photos that I'll
@@ -27,7 +29,7 @@ function RouteComponent() {
       />
       <Link
         to="/notes"
-        className="mt-5 hover:opacity-60 transition-opacity  text-black dark:text-white duration-300"
+        className="mt-5 hover:opacity-60 transition-opacity text-black dark:text-white duration-300"
       >
         NOTES
       </Link>
