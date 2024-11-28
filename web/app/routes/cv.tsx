@@ -1,59 +1,51 @@
 import * as React from "react"
 import { createFileRoute } from "@tanstack/react-router"
 import { Link as LinkIcon } from "lucide-react"
+import { Link } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/cv")({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const experience = [
+  const projects = [
     {
-      title: "Learn Anything (2023 - Present)",
-      description: [
+      title: "Learn Anything",
+      description:
         "An open-source educational platform featuring thousands of curated learning topics",
-      ],
+      image: "https://images.omrshn.dev/learn-anything.jpeg",
       link: "https://github.com/learn-anything/learn-anything",
     },
     {
-      title: "Zuleika Jewelry (2024 - Present)",
-      description: [
-        "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
-      ],
-      link: "https://github.com/olyamrshn/zuleika-jewelry",
+      title: "The Pakt",
+      description:
+        "Protocol for creating and managing escrow contracts for task-based funding",
+      image: "https://images.omrshn.dev/pakt.jpeg",
+      link: "https://github.com/thepakt/app.thepakt.com",
     },
     {
-      title: "The Pakt (2024)",
-      description: [
-        "Protocol for creating and managing escrow contracts for task-based funding",
-      ],
-      link: "https://github.com/thepakt/app.thepakt.com",
+      title: "Zuleika Jewelry",
+      description:
+        "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
+      image: "https://images.omrshn.dev/zuleika-store.jpeg",
+      link: "https://github.com/olyamrshn/zuleika-jewelry",
     },
   ]
 
   const achievements = [
     {
       title: "Winner, TON Paris Hackathon (October 2024)",
-      subtitle: "Frontend Developer - TON Todo Escrow Application",
+      subtitle: "TON Todo Escrow Application",
       link: "https://x.com/ton_france/status/1851538025810952193",
       description:
         "frontend development of a Telegram mini-app connecting entrepreneurs with investors via a task-based escrow system. A secure platform allowing entrepreneurs to structure projects into funded tasks while protecting investor assets through blockchain-based escrow functionality.",
-      points: [
-        "Implemented intuitive UI for project creation and investment workflows",
-        "Built dispute resolution interface with automated moderator chat system",
-        "Collaborated on smart contract integration with backend team",
-      ],
     },
   ]
 
   const additionalEducation = [
     {
-      title:
-        "Yandex Practicum | Frontend Full Development Course - 2022 (1 year)",
-      points: [
-        "Frontend development fundamentals",
-        "React and modern web technologies",
-      ],
+      title: "Yandex Practicum | 2022 (1 year)",
+      subtitle: "Frontend & Backend basics Development Course",
     },
     {
       title: "Complete CSS: A course by Piccalilli",
@@ -62,18 +54,15 @@ function RouteComponent() {
     },
     {
       title: "Animations.dev",
+      subtitle: "Advanced web animations",
       link: "https://animations.dev",
-      points: [
-        "Advanced web animations",
-        "CSS and JavaScript animation techniques",
-      ],
     },
   ]
 
   const SkillsSection = () => {
     const skills = {
-      "Core Technologies": ["TypeScript", "REST API", "Three.js"],
-      "Frameworks & Libraries": [
+      "CORE TECHNOLOGIES": ["TypeScript", "REST API", "Three.js"],
+      "FRAMEWORKS & LIBRARIES": [
         "Next.js",
         "React Native",
         "TailwindCSS",
@@ -84,9 +73,6 @@ function RouteComponent() {
 
     return (
       <section className="my-4">
-        <h2 className="text-base font-regular mb-4 text-left">
-          TECHNICAL SKILLS
-        </h2>
         {Object.entries(skills).map(([category, items]) => (
           <div key={category} className="mb-6">
             <h3 className="text-sm mb-3 text-left">{category}</h3>
@@ -95,8 +81,8 @@ function RouteComponent() {
                 <span
                   key={skill}
                   className="text-sm px-4 py-2 bg-inherit
-                    border border-neutral-800/30 rounded-lg transition-all duration-300
-                    hover:from-neutral-800/30 hover:to-neutral-800/30 hover:bg-neutral-800/10 dark:hover:bg-white/10
+                    border border-neutral-600/30 rounded-lg transition-all duration-300
+                    hover:from-neutral-600/30 hover:to-neutral-800/30 hover:bg-neutral-800/10 dark:hover:bg-white/10
                     hover:scale-105 cursor-default"
                 >
                   {skill}
@@ -116,8 +102,10 @@ function RouteComponent() {
     title: string
     children: React.ReactNode
   }) => (
-    <section className="my-4">
-      <h2 className="text-base font-regular mb-4 text-left">{title}</h2>
+    <section className="my-12">
+      <h2 className="text-lg font-medium mb-6 text-left tracking-wide">
+        {title}
+      </h2>
       {children}
     </section>
   )
@@ -133,12 +121,12 @@ function RouteComponent() {
       link?: string
     }
   }) => (
-    <div className="mb-6">
-      <h3 className="text-sm font-regular whitespace-normal text-left">
+    <div className="mb-8">
+      <h3 className="text-base font-medium mb-2 text-left">
         {item.link ? (
           <a
             href={item.link}
-            className="hover:opacity-60 text-black dark:text-white transition-opacity duration-300 flex items-center gap-2"
+            className="hover:opacity-60 transition-opacity duration-300 flex items-center gap-2"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -150,12 +138,12 @@ function RouteComponent() {
         )}
       </h3>
       {item.subtitle && (
-        <p className="text-sm opacity-70 whitespace-normal text-left">
+        <p className="text-sm opacity-80 mb-2 leading-relaxed text-left">
           {item.subtitle}
         </p>
       )}
       {item.description && (
-        <p className="text-sm mt-2 opacity-70 whitespace-normal text-left">
+        <p className="text-sm mt-3 leading-relaxed opacity-90 text-left max-w-prose">
           {item.description}
         </p>
       )}
@@ -163,21 +151,43 @@ function RouteComponent() {
   )
 
   return (
-    <div className=" text-black dark:text-white mx-auto my-4 max-w-2xl user-select-none">
-      <div className=" text-black dark:text-white mx-auto max-w-screen-md px-4 text-left">
-        <h1 className="text-base font-regular mb-3">Marshennikova Olga</h1>
+    <div className="mx-auto my-[2.5em] max-w-2xl user-select-none">
+      <div className="mx-auto max-w-screen-md px-4 text-left">
+        <Link href="/" className="text-sm mb-6">
+          ← Main page
+        </Link>
+        <h1 className="text-base font-regular mt-3">Marshennikova Olga</h1>
 
-        <Section title="PROFESSIONAL EXPERIENCE">
-          {experience.map((item, index) => (
-            <ExperienceItem
-              key={index}
-              item={{
-                title: item.title,
-                description: item.description?.join(" "),
-                link: item.link,
-              }}
-            />
-          ))}
+        <Section title="PROJECTS">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            {projects.map((project) => (
+              <a
+                key={project.title}
+                href={project.link}
+                className="relative rounded-xl overflow-hidden border-[1px] dark:border-white/10 border-black/10
+                  hover:border-2 hover:border-pink-500 transition-all duration-300 group
+                  hover:shadow-[0_0_15px_rgba(236,72,153,0.5)] dark:hover:shadow-[0_0_15px_rgba(236,72,153,0.5)]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="aspect-[1.85/1] relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-mono font-semibold">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm font-light tracking-tight font-mono">
+                    {project.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </Section>
 
         <Section title="ACHIEVEMENTS">
