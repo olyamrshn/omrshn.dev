@@ -122,9 +122,40 @@ export const monthData: MonthData = {
     },
     november: {
       title: "november - madrid",
-      content:
-        "madrid is actually quite nice. im pushing guys to move downtown, but im kind of bummed about losing our building's gym upstairs. i just started getting into running with the treadmill. ",
-      images: [],
+      content: (
+        <div>
+          madrid is actually quite nice. we're staying at{" "}
+          <a
+            href="https://www.becasaapartments.com/es/landings/be-casa-valdebebas"
+            target="_blank"
+            className="underline"
+            rel="noopener noreferrer"
+          >
+            Be casa
+          </a>{" "}
+          complex until the end of january. highly recommend this place, but the
+          hour-long metro ride to downtown is a bit much... trying to convince
+          my partner to move closer to the city center (especially salamanca or
+          chamberi, interestingly, coffee is much cheaper there), though i'll
+          miss having our gym upstairs - just started getting into running with
+          the treadmill. the vibe of spanish cities reminds me a bit of
+          istanbul, but cleaner. im amazed by how everything is put together in
+          that european way, from how people dress to the cafe and store
+          windows. these are usually simple pieces with interesting details. I
+          moved here with just the bare essentials, and now my wardrobe consists
+          of cos and massimo dutti clothes. recently discovered cute store
+          Brandy Melville with really nice cotton basics (wanna buy entire
+          collection). to be honest, madrid has one disadvantage: i've gotten
+          used to living in cities with waterfront views since its always the
+          best spot for a walk. there's nothing like that here, and i miss it so
+          much.
+        </div>
+      ),
+      images: [
+        "https://images.omrshn.dev/nov1.jpeg",
+        "https://images.omrshn.dev/nov2.jpeg",
+        "https://images.omrshn.dev/nov3.jpeg",
+      ],
     },
   },
 
