@@ -12,7 +12,7 @@ function RouteComponent() {
         strive to post every month. If you're reading this, I'm delighted that
         my thoughts have captured your interest! code is{" "}
         <a
-          href="https://github.com/marshennikovaolga/dear-diary"
+          href="https://github.com/olyamrshn/omrshn.dev"
           className="italic text-black dark:text-white opacity-70 hover:opacity-90 transition-opacity duration-300 cursor-pointer"
           target="_blank"
           rel="noopener noreferrer"
