@@ -28,6 +28,12 @@ function RouteComponent() {
         image: "https://images.omrshn.dev/zuleika-store.jpeg",
         link: "https://github.com/olyamrshn/zuleika-jewelry",
       },
+      {
+        title: "Solbond",
+        description: "Digital marketplace for buying and selling digital goods",
+        image: "https://images.omrshn.dev/solbond.jpeg",
+        link: "https://github.com/solbond/solbond-clean",
+      },
     ],
     past: [
       {
