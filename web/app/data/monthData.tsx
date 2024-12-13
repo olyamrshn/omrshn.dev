@@ -17,13 +17,13 @@ interface MonthData {
 export const monthData: MonthData = {
   2024: {
     march: {
-      title: "march",
+      title: "march - tbilisi",
       content:
         "cool month. started learning react native for mobile applications. I've finally moved to Tbilisi and live in the Vake, just five minutes from pulp! there's a lot of work ahead of me, but it's quite exciting. btw, mastering drag and drop functionalities is proving to be tough",
       images: ["https://images.omrshn.dev/cats.jpeg"],
     },
     april: {
-      title: "april - tbilisi",
+      title: "april",
       content:
         "wtf its so wild how quick money moves here - i just bought club mate, matcha, groceries, and khinkali. been here 3 weeks, still waiting for mountain trip. working on learn anything mobile, expo tabs are super annoying. out of liras in turkish account, need physical presence in istanbul to top up phone number for transfers etc.",
       images: [
@@ -156,6 +156,11 @@ export const monthData: MonthData = {
         "https://images.omrshn.dev/nov2.jpeg",
         "https://images.omrshn.dev/nov3.jpeg",
       ],
+    },
+    december: {
+      title: "december - madrid",
+      content: "",
+      images: [],
     },
   },
 
