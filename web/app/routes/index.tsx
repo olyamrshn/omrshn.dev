@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import anime from "animejs"
 import { useEffect } from "react"
+import Snowfall from "../components/Snowfall"
+import "../styles/app.css"
 import {
   faInstagram,
   faGithub,
@@ -47,6 +49,7 @@ function MainComponent() {
 
   return (
     <div className="min-h-screen p-8 flex flex-col max-w-xl mx-auto text-left items-start justify-center text-black dark:text-white space-y-2">
+      <Snowfall />
       <p className="text-animate">
         Hi there! I'm a frontend developer based in Madrid
         <span className="text-lg pl-1">𓍯𓂃</span>

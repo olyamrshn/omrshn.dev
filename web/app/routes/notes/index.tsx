@@ -9,7 +9,7 @@ function NotesComponent() {
   const isRoot = segments.length === 2
 
   return (
-    <div className="text-center text-md flex flex-col items-center justify-center relative">
+    <div className="text-left text-md flex flex-col justify-center items-center relative">
       {isRoot && (
         <>
           <BackLink to="/diary" label="Diary" />
