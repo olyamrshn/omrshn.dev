@@ -22,13 +22,6 @@ function RouteComponent() {
         link: "https://github.com/learn-anything/learn-anything",
       },
       {
-        title: "Zuleika Jewelry",
-        description:
-          "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
-        image: "https://images.omrshn.dev/zuleika-store.jpeg",
-        link: "https://github.com/olyamrshn/zuleika-jewelry",
-      },
-      {
         title: "Solbond",
         description: "Digital marketplace for buying and selling digital goods",
         image: "https://images.omrshn.dev/solbond.jpeg",
@@ -42,6 +35,13 @@ function RouteComponent() {
           "Protocol for creating and managing escrow contracts for task-based funding",
         image: "https://images.omrshn.dev/pakt.jpeg",
         link: "https://github.com/thepakt/app.thepakt.com",
+      },
+            {
+        title: "Zuleika Jewelry",
+        description:
+          "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
+        image: "https://images.omrshn.dev/zuleika-store.jpeg",
+        link: "https://github.com/olyamrshn/zuleika-jewelry",
       },
     ],
   }
