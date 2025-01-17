@@ -44,7 +44,7 @@ function MainComponent() {
       icon: faSpotify,
       href: "https://open.spotify.com/user/awpkpo5yx2t80iqa4tgfvp7a7",
     },
-    { icon: faInstagram, href: "https://www.instagram.com/olyamrshn" },
+    { icon: faInstagram, href: "https://www.instagram.com/olmrshn" },
   ]
 
   return (
