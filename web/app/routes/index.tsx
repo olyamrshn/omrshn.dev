@@ -35,17 +35,8 @@ function MainComponent() {
   const links = [
     { icon: faGithub, href: "https://github.com/olyamrshn" },
     { icon: faDiscord, href: "https://discord.com/users/704485765010161966" },
-<<<<<<< HEAD
-    { icon: faGoogle, href: "mailto:olyamrshn@gmail.com" },
-    {
-      icon: faSpotify,
-      href: "https://open.spotify.com/user/awpkpo5yx2t80iqa4tgfvp7a7",
-    },
-    { icon: faInstagram, href: "https://www.instagram.com/olmrshn" },
-=======
     { icon: faXTwitter, href: "https://twitter.com/leatbabies" },
     { icon: faInstagram, href: "https://www.instagram.com/olyamrshn" },
->>>>>>> d22e683 (.)
   ]
 
   return (
