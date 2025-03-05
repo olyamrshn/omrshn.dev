@@ -22,6 +22,10 @@ function RouteComponent() {
         link: "https://github.com/learn-anything/learn-anything",
       },
       {
+        title: "Preprompt",
+        description: "AI-powered toolfor analyzing websites",
+      },
+      {
         title: "Solbond",
         description: "Digital marketplace for buying and selling digital goods",
         image: "https://images.omrshn.dev/solbond.jpeg",
@@ -36,7 +40,7 @@ function RouteComponent() {
         image: "https://images.omrshn.dev/pakt.jpeg",
         link: "https://github.com/thepakt/app.thepakt.com",
       },
-            {
+      {
         title: "Zuleika Jewelry",
         description:
           "A comprehensive e-commerce solution including custom interface, product management, and inventory tracking for a jewelry store on Shopify platform",
@@ -203,11 +207,15 @@ function RouteComponent() {
                 rel="noopener noreferrer"
               >
                 <div className="aspect-[1.85/1] relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                  />
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-black"></div>
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg font-mono font-semibold">
